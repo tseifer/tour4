@@ -1,0 +1,10 @@
+<h2>Massages</h2>
+
+<button mat-raised-button (click)="clearMassages()">Clear Massages</button>
+
+<ul>
+  <li *ngFor="let massage of massagesService.massages">
+    {{massage}}
+  </li>
+
+</ul>

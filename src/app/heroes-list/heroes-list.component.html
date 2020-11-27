@@ -1,0 +1,15 @@
+<h2>My Heroes</h2>
+<ul class="heroes">
+  <li class="heroLine"
+      *ngFor="let hero of heroes"
+      [class.selected]="hero === selectedHero"
+      (click)="onSelect(hero)">
+    <span class="badge">{{hero._id}}</span> {{hero.name}}
+    <span class="delete-button" title="Delete Hero" (click)="delete(hero)">
+      <mat-icon>delete</mat-icon>
+    </span>
+  </li>
+</ul>
+
+
+

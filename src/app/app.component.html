@@ -1,0 +1,11 @@
+<h1>{{title}}</h1>
+<nav>
+  <a routerLink="/dashboard">Dashboard</a>
+  <a routerLink="/heroes">Heroes</a>
+  <a routerLink="/clients">Clients</a>
+</nav>
+<button mat-button color="primary" routerLink="/add-hero" *ngIf="showAddHero">ADD A NEW PERSON</button>
+<router-outlet></router-outlet>
+
+
+<app-massages></app-massages>

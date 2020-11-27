@@ -1,0 +1,13 @@
+<h2>My Clients</h2>
+<ul class="clients">
+  <li class="clientLine" *ngFor="let client of clients"
+      [class.selected]="client === selectedClient"
+      (click)="onSelect(client)">
+    <span class="badge">{{client._id}}</span> {{client.name}}
+    <span class="delete-button" title="Delete Client" (click)="delete(client)">
+      <mat-icon>delete</mat-icon>
+    </span>
+  </li>
+</ul>
+
+

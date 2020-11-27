@@ -1,0 +1,37 @@
+<div class="dashboardWrapper">
+<div class="dashboard">
+  <h1>Heroes</h1>
+  <mat-grid-list gutterSize="10px" cols="3" rowHeight="1:1">
+    <mat-grid-tile
+      (click)="showHeroDetails(hero)"
+      *ngFor=" let hero of heroes" class="heroTile"
+
+      >
+      <span [matBadge]="hero._id" matBadgeOverlap="false" matBadgePosition="before">
+      {{hero.name}}
+      </span>
+
+      </mat-grid-tile>
+
+  </mat-grid-list>
+</div>
+<div class="dashboard">
+  <h1>Clients</h1>
+  <mat-grid-list gutterSize="10px" cols="3" rowHeight="1:1">
+    <mat-grid-tile
+      (click)="showClientDetails(client)"
+      *ngFor=" let client of clients" class="clientTile"
+
+      >
+      <span [matBadge]="client._id" matBadgeOverlap="false" matBadgePosition="before">
+      {{client.name}}
+      </span>
+
+      </mat-grid-tile>
+
+  </mat-grid-list>
+</div>
+</div>
+<div>
+<app-search-hero></app-search-hero>
+</div>

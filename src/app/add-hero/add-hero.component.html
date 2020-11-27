@@ -1,0 +1,28 @@
+<div class="wrapper">
+<div class="addHero">
+
+<div>Hero's Name:</div>
+
+<mat-form-field class="example-form-field">
+  <mat-label>Add New Hero</mat-label>
+  <input matInput type="text" [(ngModel)]="hName">
+  <button mat-button *ngIf="hName" matSuffix mat-icon-button aria-label="Clear" (click)="hName=''">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
+<button mat-button (click)="addHero()">ADD</button>
+</div>
+  <div class="addClient">
+
+<div>Clients's Name:</div>
+
+<mat-form-field class="example-form-field">
+  <mat-label>Add New Client</mat-label>
+  <input matInput type="text" [(ngModel)]="cName">
+  <button mat-button *ngIf="cName" matSuffix mat-icon-button aria-label="Clear" (click)="cName=''">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
+<button mat-button (click)="addClient()">ADD</button>
+</div>
+</div>

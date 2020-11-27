@@ -1,0 +1,22 @@
+<mat-card class="example-card">
+  <mat-card-header *ngIf="client">
+    <mat-card-title>{{client.name | uppercase}}:</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list role="list">
+      <mat-list-item role="listitem"><mat-label>Id:</mat-label>{{client._id}}</mat-list-item>
+      <mat-list-item role="listitem">
+        <mat-form-field>
+          <mat-label>Name:</mat-label>
+          <input matInput placeholder=name [(ngModel)]="client.name">
+        </mat-form-field>
+      </mat-list-item>
+
+    </mat-list>
+
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button (click)="goBack()">go back</button>
+    <button mat-button (click)="saveClient()">save</button>
+  </mat-card-actions>
+</mat-card>

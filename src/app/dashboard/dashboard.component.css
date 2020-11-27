@@ -1,0 +1,22 @@
+.dashboard{
+  width: 500px;
+
+}
+.heroTile{
+  background: lightblue;
+
+}
+
+.clientTile{
+  background-color: #607D8B;
+  color: white;
+
+}
+
+.heroTile:hover {
+  cursor: pointer;
+}
+
+.clientTile:hover {
+  cursor: pointer;
+}

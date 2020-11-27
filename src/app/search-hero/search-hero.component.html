@@ -1,0 +1,30 @@
+<div>Search Hero or Client</div>
+
+<mat-form-field class="example-form-field">
+  <mat-label>Search ...</mat-label>
+  <input matInput type="text"
+         [(ngModel)]="term"
+         (keyup)="search(term)">
+  <button mat-button *ngIf="term" matSuffix mat-icon-button aria-label="Clear" (click)="term=''"  >
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
+<!--<button mat-button (click)="searchHero(term)">Search</button>-->
+
+<h2>Heroes: </h2>
+<ul class="search-result">
+
+  <li *ngFor="let hero of heroes | async">
+    <a routerLink="/hero-detail/{{hero._id}}">{{hero.name}}</a>
+  </li>
+
+</ul>
+<br>
+
+<h2>Clients: </h2>
+<ul class="search-result">
+  <li *ngFor="let client of clients | async">
+    <a routerLink="/client-detail/{{client._id}}">{{client.name}}</a>
+  </li>
+
+</ul>
