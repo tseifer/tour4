@@ -7,6 +7,7 @@ import {MessagesService} from './messages.service';
 import {observableToBeFn} from 'rxjs/internal/testing/TestScheduler';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {catchError, tap} from 'rxjs/operators';
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,8 @@ export class HeroService {
   };
 
   constructor(private http: HttpClient,
-              private messageService: MessagesService) {
+              private messageService: MessagesService,
+              private route: Router) {
   }
 
   getHeroes(): Observable<IHero[]> {
@@ -28,7 +30,10 @@ export class HeroService {
       .pipe(
         tap<IHero[]>(heroes => this.log(`fetched heroes`)),
         catchError((error) => {
-          this.log(`Failed` + error.body.error);
+          this.log(`Failed` + error && error.error && error.error.message);
+            if (error && error.error && error.error.statusCode === 400) {
+                this.route.navigate(['login']);
+            }
           return of([]);
         })
       );

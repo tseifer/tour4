@@ -5,6 +5,7 @@ import {Observable} from 'rxjs/internal/Observable';
 import {catchError, tap} from 'rxjs/operators';
 import {of} from 'rxjs';
 import {IClient} from '../models/IClient';
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,8 @@ export class ClientService {
   };
 
   constructor(private http: HttpClient,
-              private messageService: MessagesService) {
+              private messageService: MessagesService,
+              private route: Router) {
   }
 
   getClients(): Observable<IClient[]> {
@@ -27,7 +29,12 @@ export class ClientService {
       .pipe(
         tap<IClient[]>(heroes => this.log(`clients fetched`)),
         catchError((error) => {
-          this.log(`Failed` + error.body.error);
+            this.log(`Failed` + error && error.error && error.error.message);
+
+            if (error && error.error && error.error.statusCode === 400) {
+                this.route.navigate(['login']);
+            }
+
           return of([]);
         })
       );

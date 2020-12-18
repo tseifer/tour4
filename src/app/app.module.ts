@@ -24,6 +24,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { SearchHeroComponent } from './search-hero/search-hero.component';
 import { ClientsListComponent } from './clients-list/clients-list.component';
 import { ClientDetailComponent } from './client-detail/client-detail.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { ClientDetailComponent } from './client-detail/client-detail.component';
     SearchHeroComponent,
     ClientsListComponent,
     ClientDetailComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
