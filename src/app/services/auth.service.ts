@@ -29,7 +29,7 @@ export class AuthService {
   }
 
   public validate(email, password) {
-    return this.http.post(this.clientUrl, {'username' : email, 'password' : password}, this.httpOptions).toPromise()
+    return this.http.post(`${this.clientUrl}/login`, {'username' : email, 'password' : password}, this.httpOptions).toPromise()
   }
 
 }
