@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class AuthService {
   };
 
   loggedInUserInfo : {};
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private route : Router) { }
 
 
   public isAuthenticated() : Boolean {
@@ -22,6 +23,13 @@ export class AuthService {
       return true;
     }
     return false;
+  }
+
+  public async logout()  {
+    await this.http.get(`${this.clientUrl}/logout`).toPromise()
+    console.log('tried sending logout to server')
+    //localStorage.clear();
+    await this.route.navigate(['login']);
   }
 
   public setUserInfo(user){

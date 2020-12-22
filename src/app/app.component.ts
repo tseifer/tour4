@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import {AuthService} from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -12,10 +13,16 @@ export class AppComponent {
   showAddHero=true;
 
 
-  constructor(private activatedRoute: ActivatedRoute) {
+  constructor(private activatedRoute: ActivatedRoute,
+              private authService: AuthService) {
   }
 
   ngOnInit(): void {
     console.log(this.activatedRoute)
+  }
+
+  async logout() {
+    await this.authService.logout();
+
   }
 }
