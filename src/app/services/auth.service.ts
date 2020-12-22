@@ -32,4 +32,7 @@ export class AuthService {
     return this.http.post(`${this.clientUrl}/login`, {'username' : email, 'password' : password}, this.httpOptions).toPromise()
   }
 
+  public signup(email, password) {
+    return this.http.post(`${this.clientUrl}/signup`, {'username' : email, 'password' : password}, this.httpOptions).toPromise()
+  }
 }

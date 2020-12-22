@@ -22,4 +22,13 @@ export class LoginComponent  {
         })
   }
 
+  signup() {
+      this.authService.signup(this.userEmail, this.userPassword)
+          .then((response) => {
+              //this.authService.setUserInfo({'user' : response['user']});
+              this.router.navigate(['login']);
+
+          })
+  }
+
 }
