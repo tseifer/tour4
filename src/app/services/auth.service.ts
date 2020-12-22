@@ -7,7 +7,7 @@ import {Router} from '@angular/router';
 })
 export class AuthService {
 
-  private clientUrl = '/api/auth';  // URL to web api
+  private authUrl = '/api/auth';  // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -26,7 +26,7 @@ export class AuthService {
   }
 
   public async logout()  {
-    await this.http.get(`${this.clientUrl}/logout`).toPromise()
+    await this.http.get(`${this.authUrl}/logout`).toPromise()
     console.log('tried sending logout to server')
     //localStorage.clear();
     await this.route.navigate(['login']);
@@ -37,10 +37,10 @@ export class AuthService {
   }
 
   public validate(email, password) {
-    return this.http.post(`${this.clientUrl}/login`, {'username' : email, 'password' : password}, this.httpOptions).toPromise()
+    return this.http.post(`${this.authUrl}/login`, {'username' : email, 'password' : password}, this.httpOptions).toPromise()
   }
 
   public signup(email, password) {
-    return this.http.post(`${this.clientUrl}/signup`, {'username' : email, 'password' : password}, this.httpOptions).toPromise()
+    return this.http.post(`${this.authUrl}/signup`, {'username' : email, 'password' : password}, this.httpOptions).toPromise()
   }
 }
